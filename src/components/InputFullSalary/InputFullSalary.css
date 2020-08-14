@@ -1,0 +1,19 @@
+.salaryContainer {
+    width: 90%;
+}
+
+span {
+    color: blue;
+    
+    margin-bottom: 5px;
+}
+
+.salaryInput {
+    width: 100%;
+    height: 25px;
+
+    outline: none;
+
+    border: none;
+    border-bottom: 1px solid blue;
+}

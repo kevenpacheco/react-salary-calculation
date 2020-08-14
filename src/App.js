@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
-import InputSalarioBruto from './components/Inputs/InputSalarioBruto';
-import InputsResults from './components/Inputs/InputsResults';
+import './App.css'
+
+import InputFullSalary from './components/InputFullSalary/InputFullSalary';
+import DiscountInputs from './components/DiscountInputs/DiscountInputs';
+import BaseInputs from './components/BaseInputs/BaseInputs';
 import { calculateSalaryFrom } from './helpers/salary';
 import { formatNumber } from './helpers/format';
-import PercentageBar from './components/Inputs/PercentageBar';
+import PercentageBar from './components/PercentageBar/PercentageBar';
 
 export default class App extends Component {
   constructor(propps) {
@@ -49,26 +52,30 @@ export default class App extends Component {
 
     console.log(percentageDiscountINSS)
 
-    return (<div>
+    return (<div className="container">
       <h1>React Salário</h1>
-      <InputSalarioBruto onChangeSalary={this.handleClick} />
-      <InputsResults title={'Base INSS'} value={fullSalary}/>
 
-      <InputsResults 
-        title={'Desconto INSS'} 
-        value={discountINSS} 
-        percentage={percentageDiscountINSS}
-      />
+      <InputFullSalary onChangeSalary={this.handleClick} />
 
-      <InputsResults title={'Base IRPF'} value={baseIRPF} />
+      <div className="calculations">
+        <BaseInputs title={'Base INSS'} value={fullSalary}/>
 
-      <InputsResults 
-        title={'Desconto IRPF'} 
-        value={discountIRPF} 
-        percentage={percentageDiscountIRPF}
-      />
+        <DiscountInputs 
+          title={'Desconto INSS'} 
+          value={discountINSS} 
+          percentage={percentageDiscountINSS}
+        />
 
-      <InputsResults 
+        <BaseInputs title={'Base IRPF'} value={baseIRPF} />
+
+        <DiscountInputs 
+          title={'Desconto IRPF'} 
+          value={discountIRPF} 
+          percentage={percentageDiscountIRPF}
+        />
+      </div>
+
+      <DiscountInputs 
         title={'Salário Líquido'} 
         value={netSalary} 
         percentage={percentageNetSalary}
