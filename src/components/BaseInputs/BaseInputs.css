@@ -1,17 +1,19 @@
-.discountInputContainer {
+.baseContainer {
     width: 90%;
 }
 
-.titleDiscountInput {    
+.baseContainerTitle {
+    color: lightblue;
+    
     margin-bottom: 5px;
 }
 
-.discountInputSalaryInput {
+.baseInputs {
     width: 100%;
     height: 25px;
 
     outline: none;
 
     border: none;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid lightblue;
 }

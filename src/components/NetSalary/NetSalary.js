@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 
-import './DiscountInputs.css'
+import './NetSalary.css'
 
 export default class DiscountInputs extends Component {
     render() {
-        const { value, title, percentage, color } = this.props;
+        const { value, title, percentage } = this.props;
 
         return (
-            <div className="discountInputContainer">
-                <span 
-                    style={{ color: color }}
-                    className='titleDiscountInput'>{title}</span>
+            <div className="netSalaryContainer">
+                <span className='netSalaryTitle'>{title}</span>
                 <input 
-                    className='discountInputSalaryInput'
-                    style={{ borderBottomColor: color }}
+                    className='netSalaryInput'
                     value={`R$ ${value === undefined ? 0 : value } (${percentage === undefined || NaN ? 0 : percentage}%)`} 
                     type='text'
                     Readonly>

@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 import './App.css'
 
-import InputFullSalary from './components/InputFullSalary/InputFullSalary';
-import DiscountInputs from './components/DiscountInputs/DiscountInputs';
-import BaseInputs from './components/BaseInputs/BaseInputs';
-import { calculateSalaryFrom } from './helpers/salary';
-import { formatNumber } from './helpers/format';
-import PercentageBar from './components/PercentageBar/PercentageBar';
+import InputFullSalary from './components/InputFullSalary/InputFullSalary.js';
+import DiscountInputs from './components/DiscountInputs/DiscountInputs.js';
+import BaseInputs from './components/BaseInputs/BaseInputs.js';
+import NetSalary from './components/NetSalary/NetSalary.js';
+import { calculateSalaryFrom } from './helpers/salary.js';
+import { formatNumber } from './helpers/format.js';
+import PercentageBar from './components/PercentageBar/PercentageBar.js';
 
 export default class App extends Component {
   constructor(propps) {
@@ -50,42 +51,46 @@ export default class App extends Component {
       percentageNetSalary
     } = this.state;
 
-    console.log(percentageDiscountINSS)
+    return (
+      <div className="container">
+        <h1>React Salário</h1>
 
-    return (<div className="container">
-      <h1>React Salário</h1>
+        <InputFullSalary onChangeSalary={this.handleClick} />
 
-      <InputFullSalary onChangeSalary={this.handleClick} />
+        <div className="calculations">
+          <BaseInputs title={'Base INSS'} value={fullSalary}/>
 
-      <div className="calculations">
-        <BaseInputs title={'Base INSS'} value={fullSalary}/>
+          <DiscountInputs 
+            color={'orange'} 
+            title={'Desconto INSS'} 
+            value={discountINSS} 
+            percentage={percentageDiscountINSS}
+          />
 
-        <DiscountInputs 
-          title={'Desconto INSS'} 
-          value={discountINSS} 
-          percentage={percentageDiscountINSS}
+          <BaseInputs title={'Base IRPF'} value={baseIRPF} />
+
+          <DiscountInputs
+            color={'red'} 
+            title={'Desconto IRPF'} 
+            value={discountIRPF} 
+            percentage={percentageDiscountIRPF}
+          />
+        </div>
+
+        <NetSalary 
+          title={'Salário Líquido'} 
+          value={netSalary} 
+          percentage={percentageNetSalary}
         />
 
-        <BaseInputs title={'Base IRPF'} value={baseIRPF} />
+        <div className='barPorcentage' style={{ display: 'flex' }}>
+          <PercentageBar barcolor={'orange'} barWidth={percentageDiscountINSS}/>
+          <PercentageBar barcolor={'red'} barWidth={percentageDiscountIRPF}/>
+          <PercentageBar barcolor={'green'} barWidth={percentageNetSalary}/>
+        </div>
 
-        <DiscountInputs 
-          title={'Desconto IRPF'} 
-          value={discountIRPF} 
-          percentage={percentageDiscountIRPF}
-        />
+        <span className='copyright'>&copy; Keven Pacheco </span>
       </div>
-
-      <DiscountInputs 
-        title={'Salário Líquido'} 
-        value={netSalary} 
-        percentage={percentageNetSalary}
-      />
-
-      <div style={{ height: "20px", width: "600px", display: 'flex' }}>
-        <PercentageBar barcolor={'red'} barWidth={percentageDiscountINSS}/>
-        <PercentageBar barcolor={'blue'} barWidth={percentageDiscountIRPF}/>
-        <PercentageBar barcolor={'green'} barWidth={percentageNetSalary}/>
-      </div>
-    </div>);
+    );
   }
 }

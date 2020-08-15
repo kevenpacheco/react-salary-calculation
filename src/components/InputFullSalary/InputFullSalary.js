@@ -12,7 +12,7 @@ export default class InputSalarioBruto extends Component {
 
         return (
             <div className='salaryContainer'>
-                <span>Salário Bruto</span>
+                <span className='titleContainer'>Salário Bruto</span>
 
                 <input 
                 className='salaryInput'

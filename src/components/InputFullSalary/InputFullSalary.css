@@ -2,8 +2,8 @@
     width: 90%;
 }
 
-span {
-    color: blue;
+.titleContainer {
+    color: cornflowerblue;
     
     margin-bottom: 5px;
 }
