@@ -4,10 +4,10 @@ import './DiscountInputs.css'
 
 export default class DiscountInputs extends Component {
     render() {
-        const { value, title, percentage, color } = this.props;
+        const { value, title, percentage, color, marginRight } = this.props;
 
         return (
-            <div className="discountInputContainer">
+            <div className="discountInputContainer" style={{ marginRight: marginRight }}>
                 <span 
                     style={{ color: color }}
                     className='titleDiscountInput'>{title}</span>

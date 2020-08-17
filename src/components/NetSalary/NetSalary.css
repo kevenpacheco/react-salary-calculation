@@ -20,4 +20,10 @@
 
     border: none;
     border-bottom: 1px solid green;
+
+    background-color: black;
+}
+
+.netSalaryInput:focus{
+    outline: none;
 }

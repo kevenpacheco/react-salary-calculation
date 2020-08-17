@@ -1,3 +1,7 @@
+input {
+    color: whitesmoke
+}
+
 .container {
     width: 90%;
 
@@ -10,6 +14,10 @@
     justify-content: center;
 }
 
+h1 {
+    color: whitesmoke;
+}
+
 .calculations {
     width: 90%;
     height: 60px;
@@ -17,7 +25,6 @@
     margin: 15px auto;
 
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-content: center;
 }
@@ -35,4 +42,6 @@
 
 .copyright {
     margin-top: 30px;
+
+    color: whitesmoke;
 }

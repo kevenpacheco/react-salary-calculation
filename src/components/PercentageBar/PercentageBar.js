@@ -8,7 +8,7 @@ export default class PercentageBar extends Component {
             <div style={{
                 backgroundColor: `${barcolor}`,
                 width: `${barWidth}%`,
-                height: '100%'
+                height: '100%',
             }}></div>
         )
     }

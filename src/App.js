@@ -61,6 +61,7 @@ export default class App extends Component {
           <BaseInputs title={'Base INSS'} value={fullSalary}/>
 
           <DiscountInputs 
+            marginRight={'20px'}
             color={'orange'} 
             title={'Desconto INSS'} 
             value={discountINSS} 
@@ -70,6 +71,7 @@ export default class App extends Component {
           <BaseInputs title={'Base IRPF'} value={baseIRPF} />
 
           <DiscountInputs
+            style={{  }}
             color={'red'} 
             title={'Desconto IRPF'} 
             value={discountIRPF} 
